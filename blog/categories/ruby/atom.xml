@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Passionate And Opinionated]]></title>
-  <link href="http://jakcharlton.github.com/atom.xml" rel="self"/>
+  <title><![CDATA[Category: Ruby | Passionate And Opinionated]]></title>
+  <link href="http://jakcharlton.github.com/blog/categories/ruby/atom.xml" rel="self"/>
   <link href="http://jakcharlton.github.com/"/>
   <updated>2012-09-14T10:36:04+10:00</updated>
   <id>http://jakcharlton.github.com/</id>
