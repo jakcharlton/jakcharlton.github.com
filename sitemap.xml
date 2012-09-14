@@ -4,14 +4,18 @@
         <loc>
             http://jakcharlton.github.com/blog/2012/09/14/carrierwave-errors-with-http-proxy/
         </loc>
-        <lastmod>2012-09-14T10:35:49+10:00</lastmod>
+        <lastmod>2012-09-14T11:20:39+10:00</lastmod>
+    </url>
+    <url>
+        <loc>http://jakcharlton.github.com/archives/</loc>
+        <lastmod>2012-09-14T11:20:39+10:00</lastmod>
     </url>
     <url>
         <loc>http://jakcharlton.github.com/blog/archives/</loc>
-        <lastmod>2012-09-14T10:35:49+10:00</lastmod>
+        <lastmod>2012-09-14T11:20:39+10:00</lastmod>
     </url>
     <url>
         <loc>http://jakcharlton.github.com/</loc>
-        <lastmod>2012-09-14T10:35:49+10:00</lastmod>
+        <lastmod>2012-09-14T11:20:39+10:00</lastmod>
     </url>
 </urlset>
