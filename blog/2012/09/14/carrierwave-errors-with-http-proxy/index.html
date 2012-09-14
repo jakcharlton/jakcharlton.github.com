@@ -5,7 +5,7 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Passionate And Opinionated</title>
+  <title>Carrierwave errors with HTTP_PROXY - Passionate And Opinionated</title>
   <meta name="author" content="Jak Charlton">
 
   
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://jakcharlton.github.com/">
+  <link rel="canonical" href="http://jakcharlton.github.com/blog/2012/09/14/carrierwave-errors-with-http-proxy/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
    <link href="/stylesheets/data-table.css" media="screen, projection" rel="stylesheet" type="text/css" />
@@ -62,15 +62,12 @@
 </nav> -->
   <div id="main">
     <div id="content">
-      <div class="blog-index">
+      <div>
+<article class="hentry" role="article">
   
-  
-  
-    <article>
-      
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2012/09/14/carrierwave-errors-with-http-proxy/">Carrierwave errors with HTTP_PROXY</a></h1>
+      <h1 class="entry-title">Carrierwave errors with HTTP_PROXY</h1>
     
     
       <p class="meta">
@@ -93,7 +90,7 @@
   </header>
 
 
-  <div class="entry-content"><p>We have a corporate firewall, that loves to stop us accessing external sites and resources. Although our production servers sit outside this, when developing internally we have to ensure we are using our proxy server for all HTTP requests.</p>
+<div class="entry-content"><p>We have a corporate firewall, that loves to stop us accessing external sites and resources. Although our production servers sit outside this, when developing internally we have to ensure we are using our proxy server for all HTTP requests.</p>
 
 <p>When installing Carrierwave to use Fog and S3 this week, I got a weird error relating to my HTTP_PROXY being incorrect. I spent a good couple of hours on this, trying to find a way of specifying a proxy to
 <a href="https://github.com/jnicklas/carrierwave" title="Carrierwave">Carrierwave</a>,
@@ -118,18 +115,65 @@ for setting the http_proxy had one small difference from mine:</p>
 <p>A quick export later, and problem resolved, in the python script and in Carrierwave. It seems both of them were
 sensitive to the trailing slash, despite a dozen other gems and programs working just fine without it.</p>
 </div>
+
+
+  <footer>
+    <p class="meta">
+      
   
+
+<span class="byline author vcard">Posted by <span class="fn">Jak Charlton</span></span>
+
+      
+
+
+
+
+
+
+
+
   
 
 
-    </article>
+<time datetime="2012-09-14T10:13:00+10:00" pubdate data-updated="true">Sep 14<span>th</span>, 2012</time>
+      
+
+<span class="categories">
   
-  <div class="pagination">
+    <a class='category' href='/blog/categories/rails/'>Rails</a>, <a class='category' href='/blog/categories/ruby/'>Ruby</a>, <a class='category' href='/blog/categories/tips-and-tricks/'>Tips and Tricks</a>
+  
+</span>
+
+
+    </p>
     
-    <a href="archives">Blog Archives</a>
-    
-  </div>
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://jakcharlton.github.com/blog/2012/09/14/carrierwave-errors-with-http-proxy/" data-via="jakcharlton" data-counturl="http://jakcharlton.github.com/blog/2012/09/14/carrierwave-errors-with-http-proxy/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
 </div>
+
+    
+    <p class="meta">
+      
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
 <aside class="sidebar">
   
     <section>
@@ -155,7 +199,7 @@ sensitive to the trailing slash, despite a dozen other gems and programs working
 <section>
   <h1>Latest Tweets</h1>
   <ul id="tweets">
-    <li class="loading">Status updating&#8230;</li>
+    <li class="loading">Status updating...</li>
   </ul>
   <script type="text/javascript">
     $.domReady(function(){
@@ -172,7 +216,7 @@ sensitive to the trailing slash, despite a dozen other gems and programs working
 <section>
   <h1>GitHub Repos</h1>
   <ul id="gh_repos">
-    <li class="loading">Status updating&#8230;</li>
+    <li class="loading">Status updating...</li>
   </ul>
   
   <a href="https://github.com/jakcharlton">@jakcharlton</a> on GitHub
@@ -213,6 +257,7 @@ sensitive to the trailing slash, despite a dozen other gems and programs working
   
 </aside>
 
+
     </div>
   </div>
   <footer role="contentinfo"><p>
@@ -227,7 +272,10 @@ sensitive to the trailing slash, despite a dozen other gems and programs working
       var disqus_shortname = 'jakcharltonsblog';
       
         
-        var disqus_script = 'count.js';
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://jakcharlton.github.com/blog/2012/09/14/carrierwave-errors-with-http-proxy/';
+        var disqus_url = 'http://jakcharlton.github.com/blog/2012/09/14/carrierwave-errors-with-http-proxy/';
+        var disqus_script = 'embed.js';
       
     (function () {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
