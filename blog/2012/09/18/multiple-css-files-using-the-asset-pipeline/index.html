@@ -5,7 +5,7 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Passionate And Opinionated</title>
+  <title>'Multiple CSS Files Using the Asset Pipeline' - Passionate And Opinionated</title>
   <meta name="author" content="Jak Charlton">
 
   
@@ -19,7 +19,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://jakcharlton.github.com/">
+  <link rel="canonical" href="http://jakcharlton.github.com/blog/2012/09/18/multiple-css-files-using-the-asset-pipeline/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
    <link href="/stylesheets/data-table.css" media="screen, projection" rel="stylesheet" type="text/css" />
@@ -63,15 +63,12 @@
 </nav> -->
   <div id="main">
     <div id="content">
-      <div class="blog-index">
+      <div>
+<article class="hentry" role="article">
   
-  
-  
-    <article>
-      
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2012/09/18/multiple-css-files-using-the-asset-pipeline/">&#8216;Multiple CSS Files Using the Asset Pipeline&#8217;</a></h1>
+      <h1 class="entry-title">'Multiple CSS Files Using the Asset Pipeline'</h1>
     
     
       <p class="meta">
@@ -94,7 +91,7 @@
   </header>
 
 
-  <div class="entry-content"><p>In Rails, using the Asset Pipeline, you generally use a line in your application template that looks something like:</p>
+<div class="entry-content"><p>In Rails, using the Asset Pipeline, you generally use a line in your application template that looks something like:</p>
 
 <figure class='code'><figcaption><span>application.html.erb </span></figcaption>
  <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
@@ -172,22 +169,16 @@
 
 <p>It works in development and test as the assets are not precompiled there, and it appears the asset pipeline just looks directly on disk for a manifest file matching the one specified in your template. But it seems the pipeline uses a different rule when it runs assets:precompile and needs you to tell it specifically which files are manifest files.</p>
 </div>
-  
-  
 
 
-    </article>
-  
-  
-    <article>
+  <footer>
+    <p class="meta">
       
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/09/14/carrierwave-errors-with-http-proxy/">Carrierwave errors with HTTP_PROXY</a></h1>
-    
-    
-      <p class="meta">
-        
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Jak Charlton</span></span>
+
+      
 
 
 
@@ -199,50 +190,46 @@
   
 
 
-<time datetime="2012-09-14T10:13:00+10:00" pubdate data-updated="true">Sep 14<span>th</span>, 2012</time>
-        
-      </p>
+<time datetime="2012-09-18T08:34:00+10:00" pubdate data-updated="true">Sep 18<span>th</span>, 2012</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/rails/'>Rails</a>, <a class='category' href='/blog/categories/ruby/'>Ruby</a>, <a class='category' href='/blog/categories/tips-and-tricks/'>Tips and Tricks</a>
+  
+</span>
+
+
+    </p>
     
-  </header>
-
-
-  <div class="entry-content"><p>We have a corporate firewall, that loves to stop us accessing external sites and resources. Although our production servers sit outside this, when developing internally we have to ensure we are using our proxy server for all HTTP requests.</p>
-
-<p>When installing Carrierwave to use Fog and S3 this week, I got a weird error relating to my HTTP_PROXY being incorrect. I spent a good couple of hours on this, trying to find a way of specifying a proxy to
-<a href="https://github.com/jnicklas/carrierwave" title="Carrierwave">Carrierwave</a>,
-or to <a href="https://github.com/fog/fog" title="Fog">Fog</a>,
-or to <a href="https://github.com/geemus/excon" title="Excon">Excon</a> (the underlying gem for Fog), all searches came up totally blank.</p>
-
-<p>The code worked just fine on my laptop, over a mobile phone, where I needed no proxy set.
-So, it was definitely a problem with proxy settings on the corporate network, but all other gems, and applciations,
-and command line tools were working just fine with the network settings on my Mac, and with the
-export settings in my ~/.zshrc file:</p>
-
-<p><code>export http_proxy=http://proxy.company.com:8080</code></p>
-
-<p>I left the problem, and switched to file storage so I could get on with development.</p>
-
-<p>Accidentally today I came across a similar proxy problem with a python script trying to retrieve a github repository,
-but it helpfully expalined to me that the http_proxy setting was incorrectly formatted. A quick Google later, and the example I got
-for setting the http_proxy had one small difference from mine:</p>
-
-<p><code>export http_proxy=http://proxy.company.com:8080/</code></p>
-
-<p>A quick export later, and problem resolved, in the python script and in Carrierwave. It seems both of them were
-sensitive to the trailing slash, despite a dozen other gems and programs working just fine without it.</p>
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://jakcharlton.github.com/blog/2012/09/18/multiple-css-files-using-the-asset-pipeline/" data-via="jakcharlton" data-counturl="http://jakcharlton.github.com/blog/2012/09/18/multiple-css-files-using-the-asset-pipeline/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
 </div>
-  
-  
 
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2012/09/14/carrierwave-errors-with-http-proxy/" title="Previous Post: Carrierwave errors with HTTP_PROXY">&laquo; Carrierwave errors with HTTP_PROXY</a>
+      
+      
+    </p>
+  </footer>
+</article>
 
-    </article>
-  
-  <div class="pagination">
-    
-    <a href="archives">Blog Archives</a>
-    
-  </div>
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 </div>
+  </section>
+
+</div>
+
 <aside class="sidebar">
   
     <section>
@@ -259,7 +246,7 @@ sensitive to the trailing slash, despite a dozen other gems and programs working
   <ul id="recent_posts">
     
       <li class="post">
-        <a href="/blog/2012/09/18/multiple-css-files-using-the-asset-pipeline/">&#8216;Multiple CSS Files Using the Asset Pipeline&#8217;</a>
+        <a href="/blog/2012/09/18/multiple-css-files-using-the-asset-pipeline/">'Multiple CSS Files Using the Asset Pipeline'</a>
       </li>
     
       <li class="post">
@@ -272,7 +259,7 @@ sensitive to the trailing slash, despite a dozen other gems and programs working
 <section>
   <h1>Latest Tweets</h1>
   <ul id="tweets">
-    <li class="loading">Status updating&#8230;</li>
+    <li class="loading">Status updating...</li>
   </ul>
   <script type="text/javascript">
     $.domReady(function(){
@@ -289,7 +276,7 @@ sensitive to the trailing slash, despite a dozen other gems and programs working
 <section>
   <h1>GitHub Repos</h1>
   <ul id="gh_repos">
-    <li class="loading">Status updating&#8230;</li>
+    <li class="loading">Status updating...</li>
   </ul>
   
   <a href="https://github.com/jakcharlton">@jakcharlton</a> on GitHub
@@ -330,6 +317,7 @@ sensitive to the trailing slash, despite a dozen other gems and programs working
   
 </aside>
 
+
     </div>
   </div>
   <footer role="contentinfo"><p>
@@ -344,7 +332,10 @@ sensitive to the trailing slash, despite a dozen other gems and programs working
       var disqus_shortname = 'jakcharltonsblog';
       
         
-        var disqus_script = 'count.js';
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://jakcharlton.github.com/blog/2012/09/18/multiple-css-files-using-the-asset-pipeline/';
+        var disqus_url = 'http://jakcharlton.github.com/blog/2012/09/18/multiple-css-files-using-the-asset-pipeline/';
+        var disqus_script = 'embed.js';
       
     (function () {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;

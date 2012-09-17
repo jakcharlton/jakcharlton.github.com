@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Rails | Passionate And Opinionated]]></title>
   <link href="http://jakcharlton.github.com/blog/categories/rails/atom.xml" rel="self"/>
   <link href="http://jakcharlton.github.com/"/>
-  <updated>2012-09-14T12:02:17+10:00</updated>
+  <updated>2012-09-18T08:58:53+10:00</updated>
   <id>http://jakcharlton.github.com/</id>
   <author>
     <name><![CDATA[Jak Charlton]]></name>
@@ -12,6 +12,89 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA['Multiple CSS Files Using the Asset Pipeline']]></title>
+    <link href="http://jakcharlton.github.com/blog/2012/09/18/multiple-css-files-using-the-asset-pipeline/"/>
+    <updated>2012-09-18T08:34:00+10:00</updated>
+    <id>http://jakcharlton.github.com/blog/2012/09/18/multiple-css-files-using-the-asset-pipeline</id>
+    <content type="html"><![CDATA[<p>In Rails, using the Asset Pipeline, you generally use a line in your application template that looks something like:</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>application.html.erb </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='erb'><span class='line'><span class="x">&amp;lt;%= stylesheet_link_tag &quot;application&quot;, :media =&gt; &quot;all&quot; </span><span class="err">%&gt;</span><span class="x"></span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>This tells Rails to load up application.css as a stylesheet, but under the covers, the chances are your stylesheet looks like:</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>application.css </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='css'><span class='line'><span class="o">/&lt;</span><span class="nt">em</span><span class="o">&gt;</span> <span class="o">...</span>
+</span><span class='line'><span class="o">&lt;/</span><span class="nt">em</span><span class="o">&gt;=</span> <span class="nt">require_self</span>
+</span><span class='line'><span class="o">&lt;</span><span class="nt">em</span><span class="o">&gt;=</span> <span class="nt">require_tree</span> <span class="o">.</span>
+</span><span class='line'><span class="o">&lt;/</span><span class="nt">em</span><span class="o">&gt;/</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>application.css is actually a manifest file, telling Sprockets (what sits under the asset pipeline), to combine a number of different files (css and scss) into a single application.css file in the final application.</p>
+
+<p>So, if you want another stylesheet, as we did for our admin section, you would think that you would limit the scope of your application.css manifest, add a new manifest file for admin, and in your admin template include the admin.css file instead:</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>application.css </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='css'><span class='line'><span class="o">/&lt;</span><span class="nt">em</span><span class="o">&gt;</span> <span class="o">...</span>
+</span><span class='line'><span class="o">&lt;/</span><span class="nt">em</span><span class="o">&gt;=</span> <span class="nt">require_self</span>
+</span><span class='line'><span class="o">&lt;</span><span class="nt">em</span><span class="o">&gt;=</span> <span class="nt">require_tree</span> <span class="nt">application_css</span><span class="o">/.</span>
+</span><span class='line'><span class="o">&lt;/</span><span class="nt">em</span><span class="o">&gt;/</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>admin.css </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='css'><span class='line'><span class="o">/&lt;</span><span class="nt">em</span><span class="o">&gt;</span> <span class="o">...</span>
+</span><span class='line'><span class="o">&lt;/</span><span class="nt">em</span><span class="o">&gt;=</span> <span class="nt">require_self</span>
+</span><span class='line'><span class="o">&lt;</span><span class="nt">em</span><span class="o">&gt;=</span> <span class="nt">require_tree</span> <span class="nt">admin_css</span><span class="o">/.</span>
+</span><span class='line'><span class="o">&lt;/</span><span class="nt">em</span><span class="o">&gt;/</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>admin.html.erb </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='erb'><span class='line'><span class="x">&amp;lt;%= stylesheet_link_tag &quot;admin&quot;, :media =&gt; &quot;all&quot; </span><span class="err">%&gt;</span><span class="x"></span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>And, you would be right, all of this works beautifully ... different stylesheets for the main app and the admin sections, you can now have Twitter Bootstrap to admin your site, and use HTML5Boilerplate or Skeleton CSS to layout your front end.</p>
+
+<p>But with one small problem ... it all works just fine in development and test, but not when you go to production. In production it will complain about a missing stylesheet - and checking the assets folder will show you admin.css isn't there.</p>
+
+<p>The missing step is a tricky one, but as you use assets:precompile in a production environment, you need to specifically tell Rails to compile your admin.css file too. In addition, if you have used the same trick for Javascript, you need to tell Rails about that as well:</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>config/environments/production.rb </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='rb'><span class='line'><span class="o">&lt;</span><span class="sr">/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="sr">&lt;h1&gt;Precompile additional assets&lt;/</span><span class="n">h1</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">h1</span><span class="o">&gt;</span><span class="p">(</span><span class="n">application</span><span class="o">.</span><span class="n">js</span><span class="p">,</span> <span class="n">application</span><span class="o">.</span><span class="n">css</span><span class="p">,</span> <span class="ow">and</span> <span class="n">all</span> <span class="n">non</span><span class="o">-</span><span class="no">JS</span><span class="o">/</span><span class="no">CSS</span> <span class="n">are</span> <span class="n">already</span> <span class="n">added</span><span class="p">)</span><span class="o">&lt;</span><span class="sr">/h1&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="sr">&lt;p&gt;config.assets.precompile += %w( admin.css admin.js admin.css.scss )</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>It works in development and test as the assets are not precompiled there, and it appears the asset pipeline just looks directly on disk for a manifest file matching the one specified in your template. But it seems the pipeline uses a different rule when it runs assets:precompile and needs you to tell it specifically which files are manifest files.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Carrierwave errors with HTTP_PROXY]]></title>
